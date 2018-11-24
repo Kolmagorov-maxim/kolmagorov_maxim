@@ -1,0 +1,24 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{tikz}
+\title{Практическая работа №2}
+\author{Студент группы 8871 Колмагоров М.А}
+\begin{document}
+\section{Практическая работа №4}
+Необходимо построить молекулу метана в графическом виде. При условии что угол поворота оси OY составляет $\alpha=\frac{5\Pi}{6}$, а угол поворота оси OZ составляет $\beta=\frac{-Pi}{6}$.
+
+\begin{tikzpicture}
+\begin{scope}[xscale=2,yscale=2]
+\draw [rounded corners=4pt,color=white,ball color=gray,smooth] (-3.6123724,0.6713906) circle (1) node {$С$};
+\draw [rounded corners=4pt,color=white,ball color=green,smooth] (0,0) circle (1) node {$H_1$};
+\draw [rounded corners=4pt,color=white,ball color=yellow,smooth] (-4.5,2.5980762) circle (1) node {$H_2$};
+\draw [rounded corners=4pt,color=white,ball color=purple,smooth] (-4.5,2.5980762) circle (1) node {$H_3$};
+\draw [rounded corners=4pt,color=white,ball color=blue,smooth] (-5.4494897,-2.5105899) circle (1) node {$H_4$};
+
+\end{scope};
+\end{tikzpicture};
+\end{document} 
