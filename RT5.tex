@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\begin{document}
+\begin{table}[t,t,t]
+\rotatebox{90}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \multicolumn{4}{|c|}{Аргументы} & \multicolumn{9}{|c|}{Логические операции} \\
+  \hline
+  \multirow{2}{*}{A} & \multirow{2}{*}{B} & \multirow{2}{*}{C} & \multirow{2}{*}{D} & \multicolumn{3}{|c|}{Отрицание (НЕ)} & \multicolumn{4}{|c|}{Конъюнкция (И)} & \multicolumn{2}{|c|}{Дизъюнкция (ИЛИ)} \\
+   &  &  &  & $\bar{A}$ & $\bar{B}$ & $\bar{D}$ & A и $\bar{B}$ & B и C & (B и C) и D & $\bar{A}$ и $\bar{D}$ & (A и $\bar{B}$) v ((B и C) и D) & ((A и $\bar{B}$) v ((B и C) и D)) v ($\bar{A}$ и $\bar{D}$) \\
+  \hline
+  0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 &
+  0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 &
+  0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 &
+  0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 &
+  0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 &
+  0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 &
+  1 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 &
+  1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 &
+  1 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 &
+  1 & 0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 &
+  1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 &
+  1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 &
+  1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 &
+\end{tabular}}
+\end{table}
+\end{document}
+
