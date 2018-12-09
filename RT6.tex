@@ -3,13 +3,18 @@
 \usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
 \usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
 \usepackage[english, russian]{babel}     % Настройки для русского языка
-\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
 \usepackage{tikz}
 \usepackage[european,cuteinductors,smartlabels]{circuitikz}
 
 
 
 \begin{document}
+\begin{center}
+Практическая работа №6. Электрические схемы
+\end{center}
+\begin{center}
+Задание номер №1
+\end{center}
 \begin{circuitikz}
 
 \draw (0,-5) to [C, l_={$C_1$},*-*] (5,-5);
@@ -27,9 +32,9 @@
 \draw (15,-2.5)  to [L, l={$L_2$},*-*] (17,-5);
 
 \end{circuitikz}
-\\
-\\
-\\
+\begin{center}
+Задание номер №2
+\end{center}
 \begin{circuitikz}
 
 \draw (0,0) to[short,o-*] (3,0);
@@ -177,8 +182,22 @@
 
 \draw (11,0) to [short,*-o] (19,0);
 \draw (11,-5) to [short,*-o] (19,-5);
-\end{circuitikz} 
-
+\end{circuitikz}
+\begin{center}
+Задание номер №3
+\end{center}
+\begin{tikzpicture}
+\begin{scope}[scale=0.6]
+\newcommand{\D}{10}
+\newcommand{\T}{1.3}
+\foreach \f
+in {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180} %
+\draw[->,red] (0,0) -- ({\D*cos(\f)},{\D*sin(\f)}) node[right] {$\f$};
+\foreach \f
+in {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180} %
+\draw[->,green] ({\D*cos(\f)},{\D*sin(\f)})--++({\T*cos(3*(\f))},{\T*sin(3*(\f))}) node[right] {$\f$};
+\end{scope};
+\end{tikzpicture}
 
 \end{document}
 
