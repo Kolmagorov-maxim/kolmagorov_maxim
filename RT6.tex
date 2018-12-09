@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{tikz}
+\usepackage[european,cuteinductors,smartlabels]{circuitikz}
+
+
+
+\begin{document}
+\begin{circuitikz}
+
+\draw (0,-5) to [C, l_={$C_1$},*-*] (5,-5);
+\draw (2.5,0) to [R, l={$R_1$},*-*] (5,-5);
+\draw (0,-5) to [L, l={$L_1$},*-*] (2.5,0);
+
+\draw (2.5,0) -- (15,0);
+\draw (5,-5) -- (13,-5);
+\draw (0,-5) -- (0,-7);
+\draw (0,-7) -- (17,-7);
+\draw (17,-7) -- (17,-5);
+
+\draw (13,-5) to [C, l_={$C_2$},*-*] (15,-2.5);
+\draw (15,-2.5) to [R, l={$R_2$},*-*] (15,0);
+\draw (15,-2.5)  to [L, l={$L_2$},*-*] (17,-5);
+
+\end{circuitikz}
+\\
+\\
+\\
+\begin{circuitikz}
+
+\draw (0,0) to[short,o-*] (3,0);
+\draw (3,0) to[C, l_={$C_1$},*-*] (3,-5);
+\draw (3,-5) to[short,*-o] (0,-5);
+
+\end{circuitikz}
+
+
+\end{document}
+
