@@ -1,0 +1,24 @@
+// ConsoleApplication10.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+void main()
+{
+	int i1[4] = { 1, 2, 6, 35 };
+	int i2[4] = { 7, 1, 8, 52 };
+	int t = 17, m = 8, f = 32, k1, k2, max = 0;
+	for (int i = 0; i <= 4; i++)
+		for (int j = 0; j <= 2; j++)
+			if ((t - i1[0] * i - i2[0] * j) >= 0 && (m - i1[1] * i - i2[1] * j) >= 0 && (f - i1[2] * i - i2[2] * j) >= 0) if ((i1[3] * i + i2[3] * j) > max)
+			{
+				max = i1[3] * i + i2[3] * j;
+				k1 = i;
+				k2 = j;
+			}
+	cout << max << ' ' << k1 << ' ' << k2 << ' ' << 0 << ' ' << 0 << endl;
+	system("pause");
+}
