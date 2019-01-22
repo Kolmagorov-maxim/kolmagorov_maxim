@@ -1,0 +1,256 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{pictures/}}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра робототехники и автоматизации производственных систем.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №10\\
+    по дисциплине "Информатика"\\
+    Тема: Создание и редактирование диаграмм и графиков.\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{213pt} \underline{\hspace{\ML}} М.\,А.~Колмагоров
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{258pt} \underline{\hspace{\ML}} А.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ, 2018 г.
+\end{center}
+\end{titlepage}
+\newpage
+\section{Цель работы}
+Изучение работы с Мастером диаграмм.
+\section{Выполнение работы}
+\subsection{Построить гистограмму.}
+
+Поскольку этап построения гистограмм рассматривался в лабораторной работе №10, на примере построения гистограммы сводной ведомости по экзаменам. Будем рассматривать построение гистограммы в данной лабораторной работке, как краткую теоретическую информацию и продукт выполненного задания.
+
+Из прошлой лабораторной работы было выявлено, что для построения гистограммы необходимо иметь готовую таблицу представленных данных. После чего необходимо выделить имя каждого столбца данных и их цифровые значения в таблице. Затем открыть в  панели инструментов вкладку вставка и выбрать раздел гистограммы. Из представленных графически оформленных гистограмм выбрать понравившуюся.
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB1.png}}
+\caption*{Таблица и гистограмма "Сводная ведомость." лаб.10 }
+\end{figure}
+\newpage
+\subsubsection{"Сведений об оплате общежития" для ведомости зарплаты из работы 10.}
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB3.png}}
+\end{figure}
+\newpage
+\subsubsection{"Сведений о стипендиях" для ведомости зарплаты из работы 10.}
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB2.png}}
+\end{figure}
+\subsection{Построение графиков функций.}
+Для выполнения построения графиков функции необходимо построить таблицу со значениями переменных x и y. Причём переменную y задать табличным уравняем.\\
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  x & y \\
+  \hline
+  $x_1$ & f(x) \\
+  \hline
+  $x_2$ & f(x) \\
+  \hline
+\end{tabular}
+\end{center}
+
+После составления данной таблицы воспользуемся уже раннее изученной функцией "Рекомендуемые диаграммы", находящееся во вкладке "Вставка".
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB4.png}}
+\end{figure}
+
+В данном разделе необходимо открыть вкладку "Все диаграммы". При построении многих математических графиков следует выбрать вид диаграмм "Точечная"
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB5.png}}
+\end{figure}
+\subsection{Построить график функции 3y+4x=7 на интервале [-1;1] с шагом $D_x$=0.2}
+Таблица значений переменных:
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  x & y=(7-4x)/3 \\
+  \hline
+  1 & 1 \\
+  \hline
+  0.8 & 1,266666667 \\
+  \hline
+  0.6 & 1,533333333 \\
+  \hline
+  0.4 & 1,8 \\
+  \hline
+  0.2 & 2,066666667 \\
+  \hline
+  0 & 2,333333333 \\
+  \hline
+  -0.2 & 2,6 \\
+  \hline
+  -0.4 & 2,866666667 \\
+  \hline
+  -0.6 & 3,133333333 \\
+  \hline
+  -0.8 & 3,4 \\
+  \hline
+  -1 & 3,666666667 \\
+  \hline
+\end{tabular}
+\end{center}
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB6.png}}
+\end{figure}
+\subsection{Построить график линейной функции 9y+8x=6 на интервале [2;4] с шагом $D_x$=0.1}
+Таблица значений переменных:
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  x & y=(6-8*х)/9 \\
+  \hline
+2,1&	-1,2\\
+\hline
+2,2&	-1,288888889\\
+\hline
+2,3&	-1,377777778\\
+\hline
+2,4&	-1,466666667\\
+\hline
+2,5&	-1,555555556\\
+\hline
+2,6&	-1,644444444\\
+\hline
+2,7&	-1,733333333\\
+\hline
+2,8&	-1,822222222\\
+\hline
+2,9&	-1,911111111\\
+\hline
+3&	-2\\
+\hline
+3,1&	-2,088888889\\
+\hline
+3,2&	-2,177777778\\
+\hline
+3,3&	-2,266666667\\
+\hline
+3,4&	-2,355555556\\
+\hline
+3,5&	-2,444444444\\
+\hline
+3,6&	-2,533333333\\
+\hline
+3,7&	-2,622222222\\
+\hline
+3,8&	-2,711111111\\
+\hline
+3,9&	-2,8\\
+\hline
+4&	-2,888888889\\
+\hline
+\end{tabular}
+\end{center}
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB7.png}}
+\end{figure}
+\subsection{Построить график функции 2y2+3x2=6  на интервале [0;1,4] с шагом $D_x$=0,1.}
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.27\linewidth]{LB8.png}}
+\end{figure}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB9.png}}
+\end{figure}
+\subsection{Построить график функции $y^3+1.5x^2-2.5x+3=0$ и построение касательной.}
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.2\linewidth]{LB11.png}}
+\end{figure}
+\newpage
+Уравнение карательной:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.25\linewidth]{LB10.png}}
+\end{figure}\\
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB12.png}}
+\end{figure}
+\subsection{Построение графика поверхности.}
+График поверхности имеет форму $z=y+x$. Следственно для его построения необходимо создать таблицу зависимости постоянного х от y  и y от х. Данная таблица при простейшей форме поверхности имеет вид.
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline
+    x/y & $y_1$ & $y_2$ \\
+    \hline
+    $x_1$ & $z_{11}$ & $z_{12}$ \\
+    \hline
+    $x_2$ & $z_{21}$ & $z_{22}$ \\
+    \hline
+  \end{tabular}
+\end{center}
+После создания данной таблицы воспользуемся ранее известным алгоритмом  "Рекомендуемые диаграммы", находящееся во вкладке "Вставка".
+\newpage
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB4.png}}
+\end{figure}
+В данном разделе необходимо открыть вкладку "Все диаграммы". При построении следует выбрать вид диаграмм "Поверхность"
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB13.png}}
+\end{figure}
+\newpage
+\subsection{Построение графика поверхности описанную формулой $z=x^2-y^2$}
+Таблица значений переменных:\\
+\rotatebox{90}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  x/y&	2&	1,8&	1,6&	1,4&	1,2&	1&	0,8&	0,6&	0,4&	0,2&	0&	-0,2&	-0,4&	-0,6&	-0,8&	-1&	-1,2&	-1,4&	-1,6&	-1,8&	-2\\
+  \hline
+2&	0&	0,76&	1,44&	2,04&	2,56&	3&	3,36&	3,64&	3,84&	3,96&	4&	3,96&	3,84&	3,64&	3,36&	3&	2,56&	2,04&	1,44&	0,76&	0\\
+\hline
+1&	-3&	-2,24&	-1,56&	-0,96&	-0,44&	0&	0,36&	0,64&	0,84&	0,96&	1&	0,96&	0,84&	0,64&	0,36&	0&	-0,44&	-0,96&	-1,56&	-2,24&	-3\\
+\hline
+0&	-4&	-3,24&	-2,56&	-1,96&	-1,44&	-1&	-0,64&	-0,36&	-0,16&	-0,04&	0&	-0,04&	-0,16&	-0,36&	-0,64&	-1&	-1,44&	-1,96&	-2,56&	-3,24&	-4\\
+\hline
+-1&	-3&	-2,24&	-1,56&	-0,96&	-0,44&	0&	0,36&	0,64&	0,84&	0,96&	1&	0,96&	0,84&	0,64&	0,36&	0&	-0,44&	-0,96&	-1,56&	-2,24&	-3\\
+\hline
+-2&	0&	0,76&	1,44&	2,04&	2,56&	3&	3,36&	3,64&	3,84&	3,96&	4&	3,96&	3,84&	3,64&	3,36&	3&	2,56&	2,04&	1,44&	0,76&	0\\
+  \hline
+\end{tabular}}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB14.png}}
+\end{figure}
+\subsection{Построение графика поверхности описанную формулой $\sqrt{z=x^2+y^2+1}$}
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB15.png}}
+\end{figure}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB16.png}}
+\end{figure}
+\section{Вывод.}
+В данной лабораторной работе было изучено построение графиков функции, как линейных так и не линейных форм. Так же было изучено построение объемных графиков называемыми графиками поверхности. Были изёчены виды графиков, возможности их построения и составления.
+\end{document}
+
