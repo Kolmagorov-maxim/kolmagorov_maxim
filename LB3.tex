@@ -1,0 +1,764 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{pictures/}}
+
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра робототехники и автоматизации производственных систем.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №10\\
+    по дисциплине "Информатика"\\
+    Тема: Работа с векторами и матрицами в математическом пакете Scilab\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{213pt} \underline{\hspace{\ML}} М.\,А.~Колмагоров
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{258pt} \underline{\hspace{\ML}} А.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ, 2018 г.
+\end{center}
+\end{titlepage}
+\newpage
+\section{Цель работы}
+Освоить процесс выполнения векторных и матричных задач в математическом пакете Scilab.
+\section{Условие}
+Решить линейную систему уравнений 3 – го порядка. Коэффициенты задать самим (Решение проверить в ручную, применив один из численных методов). Найти собственные значения и вектор квадратной матрицы А. По уравнению найти обратную матрицу матрице составленной из собственных вектор-столбцов. Доказать, что верны соотношение.
+\section{Заданные переменные}
+$A_1=\left(
+   \begin{array}{ccc}
+     2 & 3 & 4 \\
+     5 & 4 & 6 \\
+     2 & 4 & 4 \\
+   \end{array}
+ \right)$\\
+ \\
+ \\
+$A=\left(
+   \begin{array}{ccc}
+     12 & 8 & 14 \\
+     8 & 34 & 8 \\
+     14 & 8 & 12 \\
+   \end{array}
+ \right)$\\
+ \\
+ \\
+$B=\left(
+  \begin{array}{c}
+    5 \\
+    3 \\
+    4 \\
+  \end{array}
+\right)$
+\section{Используемые формулы}
+Метод полного исключения Жордана-Гаусса:\\
+РМ=$[A_{m*n}|B]\Leftrightarrow 1,2,3 ...$\\
+Транспонированная матрица:\\
+$A=\left(
+   \begin{array}{ccc}
+     a_{11} & a_{12} & a_{13} \\
+     a_{21} & a_{22} & a_{23} \\
+     a_{31} & a_{32} & a_{33} \\
+   \end{array}
+ \right)$
+$\longrightarrow  $
+$A^T=\left(
+   \begin{array}{ccc}
+     a_{11} & a_{21} & a_{13} \\
+     a_{12} & a_{22} & a_{23} \\
+     a_{13} & a_{32} & a_{33} \\
+   \end{array}
+ \right)$\\
+Матричные уравнения:\\
+$A*X=B\Rightarrow [A|B]$\\
+Метод обратной матрицы:
+\begin{equation*}
+ \begin{cases}
+    &\text{$A_n*Z_n=I_m$}\\
+    &\text{$Z_n=A_n^{-1}$}
+ \begin{cases}
+    &\text{$A*x=E$}\\
+    &\text{$[A|B]=A^{-1}$}\\
+ \end{cases}
+ \end{cases}
+\end{equation*}\\
+Обратная матрица матрица составленной из собственных вектор-столбцов:\\
+$\overset{\sim}{\underset{}{V_i}}=\frac{[\overset{\rightarrow}{\underset{}{V_k}}*\overset{\rightarrow}{\underset{}{V_l}}]}{\overset{\rightarrow}{\underset{}{V_i}}*[\overset{\rightarrow}{\underset{}{V_k}}*\overset{\rightarrow}{\underset{}{V_l}}]}$\\
+Собственные числа и векторы матрицы:\\
+\begin{equation*}
+ \begin{cases}
+    &\text{$A*\overset{\rightarrow}{\underset{}{x_\lambda}}=\lambda *\overset{\rightarrow}{\underset{}{x_\lambda}}$}\\
+    &\text{$\overset{\rightarrow}{\underset{}{x_\lambda}}\neq 0$}
+ \end{cases}
+ \Leftrightarrow
+ \begin{cases}
+    &\text{$A*\overset{\rightarrow}{\underset{}{x_\lambda}}=\overset{\rightarrow}{\underset{}{0}}$}\\
+    &\text{$\overset{\rightarrow}{\underset{}{x_\lambda}}\neq 0$}
+ \end{cases}
+ \end{equation*}\\
+\section{Значения}
+Система СЛАУ из A1 и B:\\
+\begin{equation*}
+ \begin{cases}
+   \text{$2x_1+3x_2+4x_3=5$}\\
+   \text{$5x_1+4x_2+6x_3=3$}\\
+   \text{$2x_1+4x_2+4x_3=4$}\\
+ \end{cases}
+\end{equation*}
+\begin{equation*}
+ \begin{cases}
+   \text{$x_1=-2.5$}\\
+   \text{$x_2=-1$}\\
+   \text{$x=3.25$}\\
+ \end{cases}
+\end{equation*}
+Транспонированная матрица А1:\\
+$A1^T=\left(
+  \begin{array}{ccc}
+    2 & 5 & 2 \\
+    3 & 4 & 4 \\
+    4 & 6 & 4 \\
+  \end{array}
+\right)$\\
+Решение уравнения х=$A1^T$*B:\\
+$x=\left(
+  \begin{array}{c}
+    33 \\
+    43 \\
+    54 \\
+  \end{array}
+\right)$\\
+Обратная матрица матрице А1:\\
+$A^{-1}=\left(
+  \begin{array}{ccc}
+    -1 & 0.5 & 0.25 \\
+    -1 & 0 & 1 \\
+    1.5 & -0.25 & -0.875 \\
+  \end{array}
+\right)$\\
+Матрица $A1^3$:\\
+$A1^3=\left(
+  \begin{array}{ccc}
+    308 & 385 & 480 \\
+    495 & 618 & 770 \\
+    350 & 440 & 548 \\
+  \end{array}
+\right)$\\
+Cобственные числа матрицы А:\\
+$\lambda_1=-2$\\
+$\lambda_2=18$\\
+$\lambda_3=42$\\
+Собственные векторы матрицы А:\\
+$x_1=\left(
+   \begin{array}{c}
+     -0.7071068 \\
+     0 \\
+     0.7071068 \\
+   \end{array}\\
+ \right)$\\
+$x_2=\left(
+   \begin{array}{c}
+     0.5773503 \\
+     - 0.5773503 \\
+     0.5773503 \\
+   \end{array}\\
+ \right)$\\
+$x_3=\left(
+   \begin{array}{c}
+     0.4082483 \\
+     0.8164966 \\
+     0.4082483 \\
+   \end{array}
+ \right)$\\
+Обратная матрица матрице составленной из собственных вектор-столбцов :\\
+$xO=\left(
+  \begin{array}{ccc}
+    - 0.7071068 & 0 & 0.7071068 \\
+    0.5773503 & - 0.5773503 & 0.5773503 \\
+    0.4082483 & 0.8164966 & 0.4082483 \\
+  \end{array}
+\right)$
+\section{Листинг программы Scilab}
+-1->A1=[2, 3, 4; 5, 4, 6; 2, 4, 4]\\
+ A1  =\\
+
+    2.    3.    4.
+
+    5.    4.    6.
+
+    2.    4.    4.
+\\
+-1->B=[5; 3; 4]\\
+ B  =\\
+
+    5.
+
+    3.
+
+    4.
+\\
+-1->C=rref([A1 B])\\
+ C  =\\
+
+    1.    0.    0.  - 2.5
+
+
+    0.    1.    0.  - 1.
+
+    0.    0.    1.    3.25
+\\
+-1->[n,m]=size(C);\\
+
+-1->x=C(:,m)\\
+ x  =\\
+
+  - 2.5
+
+  - 1.
+
+    3.25
+\\
+-1->A1T=A1'\\
+ A1T  =\\
+
+    2.    5.    2.
+
+    3.    4.    4.
+
+    4.    6.    4.
+\\
+-1->C=A1T*B\\
+ C  =\\
+
+    33.
+
+    43.
+
+    54.
+\\
+-1->A1O=inv(A1)\\
+ A1O  =\\
+
+  - 1.     0.5     0.25
+
+  - 1.     0.      1.
+
+    1.5  - 0.25  - 0.875
+\\
+-1->w=A1O*A1\\
+ w  =\\
+
+    1.    4.441D-16    0.
+
+    0.    1.           0.
+
+    0.  - 4.441D-16    1.
+\\
+-1->A13=$A1^3$\\
+ A13  =\\
+
+    308.    385.    480.
+
+    495.    618.    770.
+
+    350.    440.    548.
+\\
+-1->A=[12, 8, 14; 8, 34, 8; 14, 8, 12]\\
+ A  =\\
+
+    12.    8.     14.
+
+    8.     34.    8.
+
+    14.    8.     12.
+\\
+-1->[X,Y]=spec(A)\\
+ Y  =\\
+
+  - 2.    0.     0.
+
+    0.    18.    0.
+
+    0.    0.     42.
+ \\
+ X  =\\
+
+  - 0.7071068    0.5773503    0.4082483
+
+    8.925D-17  - 0.5773503    0.8164966
+
+    0.7071068    0.5773503    0.4082483
+\\
+-1->XO=inv(X)\\
+ XO  =\\
+
+  - 0.7071068    0.           0.7071068
+
+    0.5773503  - 0.5773503    0.5773503
+
+    0.4082483    0.8164966    0.4082483
+
+-1->w2=XO*X\\
+ w2  =\\
+
+    1.  - 1.110D-16  - 1.110D-16
+
+    0.    1.         - 1.388D-16
+
+    0.  - 5.551D-17    1.
+\section{Решение приведённое в ручную.}
+\subsection{Решение  СЛАУ из A1 и B.}
+По имеющимся матрицам А1 и В составляем расширенную матрицу и решаем её методом Жардана-Гаусса.\\
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    2 & 3 & 4 & 5 \\
+    5 & 4 & 6 & 3 \\
+    2 & 4 & 4 & 4 \\
+  \end{array}
+\right)$
+\end{center}
+Первую строку делим на два.
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 1.5 & 2 & 2.5 \\
+    5 & 4 & 6 & 3 \\
+    2 & 4 & 4 & 4 \\
+  \end{array}
+\right)$
+\end{center}
+От 2 строки отнимаем 1 строку, умноженную на 5. От 3 строки отнимаем 1 строку, умноженную на 2.
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 1.5 & 2 & 2.5 \\
+    0 & -3.5 & -4 & -9.5 \\
+    0 & 1 & 0 & -1 \\
+  \end{array}
+\right)$
+\end{center}
+2-ую строку делим на -3.5
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 1.5 & 2 & 2.5 \\
+    0 & 1 & \frac{8}{7} & \frac{19}{7} \\
+    0 & 1 & 0 & -1 \\
+  \end{array}
+\right)$
+\end{center}
+От 1 строки отнимаем 2 строку, умноженную на 1.5. Oт 3 строки отнимаем 2 строку, умноженную на 1.
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 0 & \frac{2}{7} & \frac{11}{7} \\
+    0 & 1 & \frac{8}{7} & \frac{19}{7} \\
+    0 & 0 & -\frac{8}{7} & -\frac{26}{7} \\
+  \end{array}
+\right)$
+\end{center}
+3-ую строку делим на $-\frac{8}{7}$
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 0 & \frac{2}{7} & \frac{11}{7} \\
+    0 & 1 & \frac{8}{7} & \frac{19}{7} \\
+    0 & 0 & 1 & 3.25 \\
+  \end{array}
+\right)$
+\end{center}
+От 1 строки отнимаем 3 строку, умноженную на   $\frac{2}{7}$. От 2 строки отнимаем 3 строку, умноженную на   $\frac{8}{7}$
+\begin{center}
+$\left(
+  \begin{array}{cccc}
+    1 & 0 & 0 & -2.5 \\
+    0 & 1 & 0 & -1 \\
+    0 & 0 & 1 & 3.25 \\
+  \end{array}
+\right)$
+\end{center}
+И того получим значение х.
+\begin{center}
+$\left(
+  \begin{array}{c}
+    -2.5 \\
+     -1 \\
+     3.25 \\
+  \end{array}
+\right)$
+\end{center}
+\subsection{Решение уравнения х=$A1^T$*B}
+Для начала произведём транспонирование матрицы А1.
+\begin{center}
+$A1=\left(
+  \begin{array}{ccc}
+    2 & 3 & 4 \\
+    5 & 4 & 6 \\
+    2 & 4 & 4 \\
+  \end{array}
+\right)$
+\end{center}
+Следственно матрица обратная $A1^T$ будет равна матрице А1 с замененными строками и столбцами друг с другом.
+\begin{center}
+$A1^T=\left(
+  \begin{array}{ccc}
+    2 & 5 & 2 \\
+    3 & 4 & 4 \\
+    4 & 6 & 4 \\
+  \end{array}
+\right)$
+\end{center}
+Далле перемножаем матрицы $A1^T$ и В. В следствии чего получим.
+\begin{center}
+$A1^T*B=\left(
+  \begin{array}{ccc}
+    2 & 5 & 2 \\
+    3 & 4 & 4 \\
+    4 & 6 & 4 \\
+  \end{array}
+\right)
+*
+\left(
+  \begin{array}{c}
+    5 \\
+    3 \\
+    4 \\
+  \end{array}
+\right)
+=
+\left(
+  \begin{array}{c}
+    2*5+5*3+2*4 \\
+    3*5+4*3+4*4 \\
+    4*5+6*3+4*4 \\
+  \end{array}
+\right)
+=
+\left(
+  \begin{array}{c}
+    33 \\
+    43 \\
+    54 \\
+  \end{array}
+\right)
+$
+\end{center}
+\subsection{Решение поиска собственных чисел и векторов матрицы А}
+Из условия что $A*\overset{\rightarrow}{\underset{}{x_\lambda}}=\lambda *\overset{\rightarrow}{\underset{}{x_\lambda}}$ Получаем что собственные векторы матрицы получаются при $(A-\lambda I)*\overset{\rightarrow}{\underset{}{x_\lambda}}=0$. А из этого следует что собственные числа матрицы находятся через определитель матрицы А и произведения $\lambda$  с единичной матрицей. Из данный выводов следует что:
+\begin{center}
+$\left(
+  \begin{array}{ccc}
+    12 & 8 & 14 \\
+    8 & 34 & 8 \\
+    14 & 8 & 12 \\
+  \end{array}
+\right)
+-
+\left(
+  \begin{array}{ccc}
+    \lambda & 1 & 1 \\
+    1 & \lambda & 1 \\
+    1 & 1 & \lambda \\
+  \end{array}
+\right)
+=
+det\left(
+  \begin{array}{ccc}
+    12-\lambda & 8 & 14 \\
+    8 & 34-\lambda & 8 \\
+    14 & 8 & 12-\lambda \\
+  \end{array}
+\right)
+$
+\end{center}
+Из чего в следствии получим:
+\begin{center}
+$(12-\lambda)((34-\lambda)(12-\lambda)-64)-8(8(12-\lambda)-112+14(64-14(34-\lambda))=0$\\
+$-\lambda^3+58\lambda^2-636\lambda-1512=0$\\
+$\lambda_1=-2\ \lambda_2=18\ \lambda_1=42$
+\end{center}
+Теперь имея собственные числа найдём три собственных вектора матрицы:\\
+При $\lambda_1=-2$
+\begin{center}
+$\left(
+  \begin{array}{ccc}
+    12-(-2) & 8 & 14 \\
+    8 & 34-(-2) & 8 \\
+    14 & 8 & 12-(-2) \\
+  \end{array}
+\right)
+\Leftrightarrow
+\left(
+  \begin{array}{cccc}
+    1 & 32 & 1 & 0\\
+    0 & -55 & 0 & 0\\
+  \end{array}
+\right)
+\Rightarrow
+\begin{tabular}{ccc}
+  $x_2$ & = & 0\\
+  $x_1$ & = & $-x_3$ \\
+\end{tabular}
+=
+x_3\left(
+  \begin{array}{c}
+    -1 \\
+    0 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+Следственно:
+\begin{center}
+$V_1=\frac{\overset{\rightarrow}{\underset{}{x_1}}}{||\overset{\rightarrow}{\underset{}{x_1}}||}=\frac{1}{\sqrt{2}}
+\left(
+  \begin{array}{c}
+    -1 \\
+    0 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+
+При $\lambda_1=18$
+\begin{center}
+$\left(
+  \begin{array}{ccc}
+    12-(18) & 8 & 14 \\
+    8 & 34-(18) & 8 \\
+    14 & 8 & 12-(18) \\
+  \end{array}
+\right)
+\Leftrightarrow
+\left(
+  \begin{array}{cccc}
+    0 & -80 & -80 & 0\\
+    14 & 8 & -6 & 0\\
+  \end{array}
+\right)
+\Rightarrow
+\begin{tabular}{ccc}
+  $x_2$ & = & $-x_3$\\
+  $x_1$ & = & $x_3$ \\
+\end{tabular}
+=
+x_3\left(
+  \begin{array}{c}
+    1 \\
+    -1 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+Следственно:
+\begin{center}
+$V_2=\frac{\overset{\rightarrow}{\underset{}{x_2}}}{||\overset{\rightarrow}{\underset{}{x_1}}||}=\frac{1}{\sqrt{3}}
+\left(
+  \begin{array}{c}
+    1 \\
+    -1 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+
+При $\lambda_1=42$
+\begin{center}
+$\left(
+  \begin{array}{ccc}
+    12-(42) & 8 & 14 \\
+    8 & 34-(42) & 8 \\
+    14 & 8 & 12-(42) \\
+  \end{array}
+\right)
+\Leftrightarrow
+\left(
+  \begin{array}{cccc}
+    0 & 88 & -176 & 0\\
+    14 & 8 & -30 & 0\\
+  \end{array}
+\right)
+\Rightarrow
+\begin{tabular}{ccc}
+  $x_2$ & = & $2x_3$\\
+  $x_1$ & = & $x_3$ \\
+\end{tabular}
+=
+x_3\left(
+  \begin{array}{c}
+    1 \\
+    2 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+Следственно:
+\begin{center}
+$V_3=\frac{\overset{\rightarrow}{\underset{}{x_3}}}{||\overset{\rightarrow}{\underset{}{x_1}}||}=\frac{1}{2}
+\left(
+  \begin{array}{c}
+    1 \\
+    2 \\
+    1 \\
+  \end{array}
+\right)
+$
+\end{center}
+\subsection{Решение обратной матрицу матрице составленной из
+собственных вектор-столбцов}
+Матрица вектор столбцов:
+\begin{center}
+$V=\left(
+  \begin{array}{ccc}
+    -1 & 1 & 1 \\
+    0 & -1 & 2 \\
+    1 & 1 & 1 \\
+  \end{array}
+\right)$
+\end{center}
+Далее находим её определитель.
+\begin{center}
+$det\left(
+  \begin{array}{ccc}
+    -1 & 1 & 1 \\
+    0 & -1 & 2 \\
+    1 & 1 & 1 \\
+  \end{array}
+\right)
+=
+det\left(
+  \begin{array}{cc}
+    -1 & 1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+-
+det\left(
+  \begin{array}{cc}
+    0 & 1 \\
+    1 & 1 \\
+  \end{array}
+\right)
++
+det\left(
+  \begin{array}{cc}
+    0 & -1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+=
+4
+$
+\end{center}
+После чего транспортируем данную матрицу.
+\begin{center}
+$\left(
+  \begin{array}{ccc}
+    -1 & 0 & 1 \\
+    1 & -1 & 1 \\
+    1 & 2 & 1 \\
+  \end{array}
+\right)$
+\end{center}
+После чего находим алгебраические уравнения каждого элемента матрицы:
+\begin{center}
+$
+A_{11}=(-1)^{1+1}det\left(
+  \begin{array}{cc}
+    -1 & 2 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{12}=(-1)^{1+2}det\left(
+  \begin{array}{cc}
+    0 & 2 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{13}=(-1)^{1+3}det\left(
+  \begin{array}{cc}
+    0 & -1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{21}=(-1)^{2+1}det\left(
+  \begin{array}{cc}
+    1 & 1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{22}=(-1)^{2+2}det\left(
+  \begin{array}{cc}
+    -1 & 1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{23}=(-1)^{2+3}det\left(
+  \begin{array}{cc}
+    -1 & 1 \\
+    1 & 1 \\
+  \end{array}
+\right)
+A_{31}=(-1)^{3+1}det\left(
+  \begin{array}{cc}
+    1 & 1 \\
+    -1 & 2 \\
+  \end{array}
+\right)
+A_{32}=(-1)^{3+2}det\left(
+  \begin{array}{cc}
+    -1 & 1 \\
+    0 & 2 \\
+  \end{array}
+\right)
+A_{33}=(-1)^{3+3}det\left(
+  \begin{array}{cc}
+    -1 & 1 \\
+    0 & -1 \\
+  \end{array}
+\right)
+$
+\end{center}
+Далее составляем транспонированную матрицу из алгебраических дополнений и делим их на определитель, получая нашу обратную матрицу.
+\begin{center}
+$
+\left(
+  \begin{array}{ccc}
+    -\frac{1}{2} & 0 & \frac{1}{2} \\
+    \frac{1}{3} & -\frac{1}{3} & \frac{1}{3} \\
+    \frac{1}{6} & \frac{1}{2} & -\frac{1}{6} \\
+  \end{array}
+\right)
+$
+\end{center}
+\section{Вывод}
+В ходе работы согласно задания был рассмотрен математический пакет Scilab. Было выполнено практическое задание по вычислению корней и действий над матрицами, также решение было проверено вручную.
+\end{document}
+
+ 
