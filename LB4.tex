@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{pictures/}}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра робототехники и автоматизации производственных систем.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №10\\
+    по дисциплине "Информатика"\\
+    Тема: Аналитические вычисления в математических пакетах REDUCE ALGEBRA и SMath\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{213pt} \underline{\hspace{\ML}} М.\,А.~Колмагоров
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{258pt} \underline{\hspace{\ML}} А.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ, 2018 г.
+\end{center}
+\end{titlepage}
+\newpage
+\section{Цель работы}
+Определить точку пересечения двух прямых, описываемых уравнениями. Найти все корни уравнения. Вычислить интеграл от в общем виде.
+\section{Условие}
+\begin{enumerate}
+  \item Определить точку пересечения двух прямых, описываемых уравнениями через математический пакет REDUCE ALGEBRA.\\
+\begin{center} 
+    $x+2\pi y=a$\\
+    $4x+y=b$
+\end{center}     
+  \item Найти все корни уравнения с помощью математического пакета SMath\\
+\begin{center}
+    $(1+y-y^2)^2+y=2$
+\end{center}    
+  \item Вычислить интеграл от в общем виде через математический пакет REDUCE ALGEBRA.\\
+\begin{center}
+    $\int x^2e^x$
+\end{center}
+\end{enumerate}
+\section{Листинг программы и решение}
+\begin{enumerate}
+  \item Задание №1
+\begin{figure}[h!]
+\includegraphics[width=1\linewidth]{LB1.png}
+\end{figure}  
+  \item Задание №2
+\begin{figure}[h!]
+\includegraphics[width=1\linewidth]{LB2.png}
+\end{figure}
+\newpage  
+  \item Задание №3
+\begin{figure}[h!]
+\includegraphics[width=1\linewidth]{LB3.png}
+\end{figure}  
+\end{enumerate}
+\section{Вывод}
+В ходе работы согласно задания был рассмотрен математический пакет SMath и математический пакет REDUCE ALGEBRA. Было выполнено практическое задание по расчету численного расчета корней уравнений.
+\end{document}
+
+ 

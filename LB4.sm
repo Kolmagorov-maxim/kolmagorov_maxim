@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Studio Desktop" version="0.99.6884.37264"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings dpi="96">
+    <identity>
+      <id>e3fb6c26-869b-46ba-8921-3b50b3cac26a</id>
+      <revision>2</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <roundingMode>0</roundingMode>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="39" bottom="39" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Studio Desktop" version="0.99.6884.37264" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="Math Region" version="0.99.6884.37264" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.12.6884.37264" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region id="0" left="0" top="0" width="332" height="81" color="#000000" bgColor="#ffffff" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">1</e>
+          <e type="operand">y</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">y</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">y</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">y</e>
+          <e type="function" args="2">solve</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.247</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">0.4451</e>
+          <e type="operand">1</e>
+          <e type="operand">1.8019</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+        </result>
+      </math>
+    </region>
+  </regions>
+</worksheet>
