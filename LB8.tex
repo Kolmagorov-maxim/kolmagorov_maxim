@@ -1,0 +1,163 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{pictures/}}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра робототехники и автоматизации производственных систем.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №8\\
+    по дисциплине "Информатика"\\
+    Тема: Графические возможности MatLab\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{213pt} \underline{\hspace{\ML}} М.\,А.~Колмагоров
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{258pt} \underline{\hspace{\ML}} А.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ, 2018 г.
+\end{center}
+\end{titlepage}
+\newpage
+\section{Цель работы}
+Освоить технику работы с основными возможностями графики MatLab для отображения функций одного, двух и трех переменных и визуализации векторных и матричных данных. Работу, связанную с масштабированием осей и подбором цветов, MatLab берет на себя.
+\section{Решение}
+Ниже представлен листинг программы\\
+x = [1.2 1.7 2.2 2.4 2.5 1.3 1.1 0.5 0.4 0.l]\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB1.png}}
+\end{figure}\\
+» time = [0.0 0.1 0.2 0.4 0.5 0.8 1.1 1.3];\\
+» data = [2.85 2.93 2.99 3.26 3.01 2.25 2.09 1.79];
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB2.png}}
+\end{figure}\\
+\newpage
+t=[-1;0.1;1];
+x=sin(t).*exp(t);\\
+bar(t,x,1.0);
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB3.png}}
+\end{figure}\\
+data=[19.5 13.4 42.6 7.9];\\
+pie(data);
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB4.png}}
+\end{figure}\\
+\newpage
+» data = [19.5 13.4 42.6 7.9];\\
+» parts = [0 1 0 0];\\
+» pie(data, parts)\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB5.png}}
+\end{figure}\\
+parts=zeros(size(data));\\
+$[mx, ind]=max(data)$;\\
+parts(ind)=1;\\
+pie(data, parts);
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB6.png}}
+\end{figure}\\
+\newpage
+data=[24.1 17.4 10.9];\\
+parts=[1 0 0];\\
+pie3(data, parts);\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB7.png}}
+\end{figure}\\
+data=randn(100000, 1);\\
+hist(data);\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB8.png}}
+\end{figure}\\
+\newpage
+data=[0.9 1.0 1.1 1.2 1.4 2.4 3.0 3.3];\\
+centers=[1.1 2.3 3.2];\\
+hist(data, centers);\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB9.png}}
+\end{figure}\\
+data=[0.9 1.0 1.1 1.2 1.4 2.4 3.0 3.3];\\
+interval=[1.1 2.0 3.2];\\
+count=histc(x, interval);\\
+count =\\
+3\         2\         0\\
+bar(interval, count, 'histc');\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB10.png}}
+\end{figure}\\
+\newpage
+DATA=[1.2\ 1.4\ 1.2\\
+3.7\ 3.5\ 3.1\\
+2.0\ 2.8\ 2.2\\
+4.2\ 4.7\ 4.1];\\
+bar(DATA);
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB11.png}}
+\end{figure}\\
+GAIN=[12.0\ 23.0\ 48.0\\
+10.6\ 31.5\ 49.0\\
+8.0\  25.0\ 78.0\\
+9.6\ 29.0\ 61.5];\\
+area(GAIN);
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB12.png}}
+\end{figure}\\
+\newpage
+x=[0;0.05;1];\\
+y=exp(-x).*sin(10*x);\\
+plot(x,y);\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB13.png}}
+\end{figure}\\
+x=[-2*pi:pi/20:2*pi];\\
+$f=exp(-0.1*x).*sin(x).^2;$\\
+$g=exp(-0.2*x).*sin(x).^2;$\\
+plot (x,f,x,g);\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB14.png}}
+\end{figure}\\
+x1=[-pi;0.01;2*pi];\\
+$f=exp(-0.1*x1).*sin(x1).^2;$\\
+$x2=[-2*pi;0.01;pi];$\\
+$g=exp(-0.2*x2).*sin(x2).^2;$\\
+plot(x1,f,x2,g);\\
+\newpage
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB15.png}}
+\end{figure}
+$x1 = [-2*pi:0.01:-pi]$;\\
+y1 = pi*sin(x1);\\
+x2 = [-pi:0.01:pi];\\
+y2 = pi-abs(x2);\\
+x3 = [pi:0.01:2*pi] ;\\
+$y3 = pi*sin(x1).^3;$\\
+x = [x1 x2 x3];\\
+y = [y1 y2 y3];\\
+plot(x1, y1)\\
+\begin{figure}[h!]
+\center{\includegraphics[width=0.6\linewidth]{LB16.png}}
+\end{figure}
+\section{Вывод}
+В ходе работы согласно задания был рассмотрен математический пакет Matlab. В ходе работы были использованы стандартные функции и команды пакета.
+\end{document}
+
