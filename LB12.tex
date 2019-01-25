@@ -1,0 +1,214 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{pictures/}}
+
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра робототехники и автоматизации производственных систем.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №12\\
+    по дисциплине "Информатика"\\
+    Тема: Графическое решение уравнений и систем уравнений\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{213pt} \underline{\hspace{\ML}} М.\,А.~Колмагоров
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{258pt} \underline{\hspace{\ML}} А.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ, 2018 г.
+\end{center}
+\end{titlepage}
+\newpage
+\section{Цель работы}
+Ознакомиться с графическими методами решения уравнений и систем уравнений.
+\section{Выполнение работы}
+\subsection{Графический способ решения уравнений}
+
+Данный способ заключается в построении графиков уравнения на определённом промежутке, согласно условию задачи. Точки где пересекаются данные графики, и будут решением данного уравнения, данный случай происходит в уравнениях сx+n=ax+d. Так же имеются случаи когда график строится один, данный случай происходит в уравнениях y=ax+d.
+
+Для выполнения построения графиков функций уравнения необходимо построить таблицу со значениями переменных x и y. Причём переменную y задать табличным уравняем.\\
+\begin{center}
+\begin{tabular}{|c|c|}
+  \hline
+  x & y \\
+  \hline
+  $x_1$ & f(x) \\
+  \hline
+  $x_2$ & f(x) \\
+  \hline
+\end{tabular}
+\end{center}
+
+После составления данной таблицы воспользуемся уже раннее изученной функцией "Рекомендуемые диаграммы", находящееся во вкладке "Вставка".
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB1.png}}
+\end{figure}
+\newpage
+В данном разделе необходимо открыть вкладку "Все диаграммы". При построении многих математических графиков следует выбрать вид диаграмм "Точечная"
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB2.png}}
+\end{figure}
+\newpage
+\subsection{Решить графически уравнение $y = cos^2(\pi x)$ на интервале [0; 1].}
+Данное уравнение имеет вид y=ax+d, поэтому график строется один.\\
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.3\linewidth]{LB3.png}}
+\end{figure}\\
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB4.png}}
+\end{figure}
+\subsection{Решить графически уравнение $x^3 = 4x^2+3x-6$.},
+Данное уравнение имеет вид cx+n=ax+d, поэтому строиться два графика.\\
+Таблица значений переменных:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+x&	Левая часть&	Правая часть\\
+\hline
+5&	125&	109\\
+\hline
+4,8&	110,592&	100,56\\
+\hline
+4,6&	97,336&	92,44\\
+\hline
+4,4&	85,184&	84,64\\
+\hline
+4,2&	74,088&	77,16\\
+\hline
+4&	64&	70\\
+\hline
+3,8&	54,872&	63,16\\
+\hline
+3,6&	46,656&	56,64\\
+\hline
+3,4&	39,304&	50,44\\
+\hline
+3,2&	32,768&	44,56\\
+\hline
+3&	27&	39\\
+\hline
+2,8&	21,952&	33,76\\
+\hline
+2,6&	17,576&	28,84\\
+\hline
+2,4&	13,824&	24,24\\
+\hline
+2,2&	10,648&	19,96\\
+\hline
+2&	8&	16\\
+\hline
+1,8&	5,832&	12,36\\
+\hline
+1,6&	4,096&	9,04\\
+\hline
+1,4&	2,744&	6,04\\
+\hline
+1,2&	1,728&	3,36\\
+\hline
+1&	1&	1\\
+\hline
+0,8&	0,512&	-1,04\\
+\hline
+0,6&	0,216&	-2,76\\
+\hline
+0,4&	0,064&	-4,16\\
+\hline
+0,2&	0,008&	-5,24\\
+\hline
+0&	0&	-6\\
+\hline
+-0,2&	-0,008&	-6,44\\
+\hline
+-0,4&	-0,064&	-6,56\\
+\hline
+-0,6&	-0,216&	-6,36\\
+\hline
+-0,8&	-0,512&	-5,84\\
+\hline
+-1&	-1&	-5\\
+\hline
+-1,2&	-1,728&	-3,84\\
+\hline
+-1,4&	-2,744&	-2,36\\
+\hline
+-1,6&	-4,096&	-0,56\\
+\hline
+-1,8&	-5,832&	1,56\\
+\hline
+-2&	-8&	4\\
+\hline
+-2,2&	-10,648&	6,76\\
+\hline
+-2,4&	-13,824&	9,84\\
+\hline
+-2,6&	-17,576&	13,24\\
+\hline
+-2,8&	-21,952&	16,96\\
+\hline
+-3&	-27&	21\\
+\hline
+-3,2&	-32,768&	25,36\\
+\hline
+-3,4&	-39,304&	30,04\\
+\hline
+-3,6&	-46,656&	35,04\\
+\hline
+-3,8&	-54,872&	40,36\\
+\hline
+-4&	-64&	46\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB5.png}}
+\end{figure}
+\subsection{Решить графически уравнение $\sin x = \cos x$ на интервале [0; 3].}
+Данное уравнение имеет вид cx+n=ax+d, поэтому строиться два графика.\\
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.27\linewidth]{LB6.png}}
+\end{figure}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB7.png}}
+\end{figure}
+\subsection{Решить графически уравнение $4-x = 2 \sin x$ на интервале [0; 2].}
+Данное уравнение имеет вид cx+n=ax+d, поэтому строиться два графика.\\
+Таблица значений переменных:
+\begin{figure}[h!]
+\center{\includegraphics[width=0.25\linewidth]{LB8.png}}
+\end{figure}
+\newpage
+График функции:
+\begin{figure}[h!]
+\center{\includegraphics[width=1\linewidth]{LB9.png}}
+\end{figure}
+\section{Вывод}
+В данной работе был изучен графический метод решения уравнений путём построения каждой части уравнения в график. В работе было изучено поведение при пересечении двух разных видов графиков.
+\end{document}
+
